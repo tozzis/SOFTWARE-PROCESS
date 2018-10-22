@@ -9,9 +9,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @EntityListeners(AuditingEntityListener.class)
@@ -34,6 +32,7 @@ public class Hello implements Serializable {
         this.text = text;
     }
 
+    public Hello(){}
 
     public String getText() {
         return text;
@@ -55,4 +54,7 @@ public class Hello implements Serializable {
     }
 
 
+    public String toString(){
+        return "id: " + hello_id + "text: " + text;
+    }
 }
