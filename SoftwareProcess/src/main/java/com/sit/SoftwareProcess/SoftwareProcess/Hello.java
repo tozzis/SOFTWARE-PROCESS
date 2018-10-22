@@ -29,6 +29,11 @@ public class Hello implements Serializable {
     @Column(name = "text")
     private String text;
 
+    public Hello(String hello_id,String text){
+        this.hello_id = hello_id;
+        this.text = text;
+    }
+
 
     public String getText() {
         return text;
