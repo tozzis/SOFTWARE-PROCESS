@@ -1,6 +1,5 @@
 package com.sit.SoftwareProcess.SoftwareProcess;
 
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -27,34 +26,31 @@ public class Hello implements Serializable {
     @Column(name = "text")
     private String text;
 
-    public Hello(String hello_id,String text){
+    public Hello(String hello_id, String text) {
         this.hello_id = hello_id;
         this.text = text;
     }
 
-    public Hello(){}
+    public Hello() {
+    }
 
     public String getText() {
         return text;
     }
 
-
     public String getHello_id() {
         return hello_id;
     }
-
 
     public void setHello_id(String hello_id) {
         this.hello_id = hello_id;
     }
 
-
     public void setText(String text) {
         this.text = text;
     }
 
-
-    public String toString(){
+    public String toString() {
         return "id: " + hello_id + "text: " + text;
     }
 }

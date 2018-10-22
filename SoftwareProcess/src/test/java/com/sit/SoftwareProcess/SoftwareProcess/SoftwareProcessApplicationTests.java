@@ -11,15 +11,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SoftwareProcessApplicationTests {
 
-	@Autowired
+    @Autowired
     private HelloService helloService;
 
     @Test
     public void ShowHelloSoftwareProcess() {
-        Hello expected = new Hello("1","HELLO SOFTWARE PROCESS 1");
+        Hello expected = new Hello("1", "HELLO SOFTWARE PROCESS 1");
         Hello actualHello = helloService.getHelloById("1");
         Assert.assertEquals(expected.getHello_id(), actualHello.getHello_id());
         Assert.assertEquals(expected.getText(), actualHello.getText());
     }
-   
+
 }
