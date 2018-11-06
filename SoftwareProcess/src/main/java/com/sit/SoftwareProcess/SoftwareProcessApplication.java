@@ -1,4 +1,4 @@
-package com.sit.SoftwareProcess.SoftwareProcess;
+package com.sit.SoftwareProcess;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
