@@ -1,14 +1,13 @@
-package com.sit.SoftwareProcess.Product;
+package com.sit.SoftwareProcess.SoftwareProcess.Model;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @EntityListeners(AuditingEntityListener.class)
@@ -16,39 +15,44 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "product")
-public class Product implements Serializable {
+public class Product {
     
     @Id
-    @Column(name = "product_id")
-    private Long product_id;
+    private Long id;
 
-    @NotBlank
-    @Column(name = "sku")
+    @NotNull
     private String sku;
 
-    @NotBlank
-    @Column(name = "name")
+    @NotNull
     private String name;
 
-    @Column(name = "price")
+    @NotNull
     private double price;
 
-    @Column(name = "detail")
+    @NotNull
     private String detail;
 
-    @Column(name = "stockQuantity")
+    @NotNull
     private int stockQuantity;
 
     public Product() {
-        super();
     }
 
-    public Long getProduct_id() {
-        return product_id;
+    public Product(Long id, String sku, String name, double price, String detail, int stockQuantity) {
+        this.id = id;
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.detail = detail;
+        this.stockQuantity = stockQuantity;
     }
 
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSku() {
@@ -90,7 +94,5 @@ public class Product implements Serializable {
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
     }
-
     
-
 }

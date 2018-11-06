@@ -1,6 +1,11 @@
-package com.sit.SoftwareProcess.Product;
+package com.sit.SoftwareProcess.SoftwareProcess.Controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
+import com.sit.SoftwareProcess.SoftwareProcess.Model.Product;
+import com.sit.SoftwareProcess.SoftwareProcess.Service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,20 +16,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getAllProuct() {
         List<Product> product = productService.getAllProduct();
         return new ResponseEntity<List<Product>>(product, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
     @GetMapping("/product/{product_id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long product_id) {
+    public ResponseEntity<Product> getProductById(@Valid @PathVariable Long product_id) {
         Product product = productService.getProductById(product_id);
         return new ResponseEntity<Product>(product, HttpStatus.OK);
     }
