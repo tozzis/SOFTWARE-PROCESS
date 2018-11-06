@@ -8,6 +8,10 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.sit.SoftwareProcess.SoftwareProcess.Model.User;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
+
 @Service
 public class JWTService {
     public static Algorithm algorithmHS = Algorithm.HMAC256("secret");
@@ -21,10 +25,17 @@ public class JWTService {
 
     public String encodeUser(User user) {
         JWTCreator.Builder signer = JWT.create().withIssuer("auth0");
+        Date expireDate = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(expireDate);
+        calendar.add(Calendar.DATE, 7);
+        expireDate = calendar.getTime();
+
         String token = signer
                 .withClaim("id", user.getId())
                 .withClaim("username", user.getUsername())
                 .withClaim("email", user.getEmail())
+                .withExpiresAt(expireDate)
                 .sign(algorithmHS);
         return token;
     }
