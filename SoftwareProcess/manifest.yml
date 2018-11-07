@@ -1,5 +1,5 @@
 applications:
-- name: softwareprocess
+- name: softwareservice
   random-route: true
   memory: 256MB
-  path: target/SoftwareProcess-1.0.1-Demo.jar
+  path: target/SoftwareProcess-1.0.0-Demo.jar
