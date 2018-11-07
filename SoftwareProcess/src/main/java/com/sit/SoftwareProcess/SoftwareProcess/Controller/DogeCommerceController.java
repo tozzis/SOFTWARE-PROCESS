@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+@CrossOrigin(origins = "https://software-process.mybluemix.net", maxAge = 3600)
 public class DogeCommerceController {
 
     @Autowired

@@ -13,7 +13,7 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
-    @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+    @CrossOrigin(origins = "https://software-process.mybluemix.net", maxAge = 3600)
     @GetMapping("/hello/{hello_id}")
     public ResponseEntity<Hello> getHelloById(@PathVariable String hello_id) {
         Hello student = helloService.getHelloById(hello_id);
